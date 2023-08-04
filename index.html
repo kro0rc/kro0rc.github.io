@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Handling with UTM Tags</title>
+</head>
+<body>
+    <h1>Cookie Handling with UTM Tags</h1>
+    <p>Open the browser console to see the log messages.</p>
+    <script>
+        // Paste the JavaScript code here
+        // ...
+
+        // The provided JavaScript code goes here
+
+        // ...
+
+        // Add code to handle UTM parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const utmSource = urlParams.get('utm_source');
+        const utmMedium = urlParams.get('utm_medium');
+        const utmCampaign = urlParams.get('utm_campaign');
+
+        if (utmSource) {
+            // Store UTM source in a cookie
+            tools.setCookie('utmSource', utmSource);
+        }
+
+        if (utmMedium) {
+            // Store UTM medium in a cookie
+            tools.setCookie('utmMedium', utmMedium);
+        }
+
+        if (utmCampaign) {
+            // Store UTM campaign in a cookie
+            tools.setCookie('utmCampaign', utmCampaign);
+        }
+
+        // ...
+
+    </script>
+</body>
+</html>
