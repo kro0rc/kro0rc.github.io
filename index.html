@@ -3,80 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-	<script src="https://webtracking-v01.bpmonline.com/JS/track-cookies.js"></script>
-	<script src="https://webtracking-v01.bpmonline.com/JS/create-object.js"></script>
-	<script>
+    <title>Base Landing Page</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://webtracking-v01.bpmonline.com/JS/track-cookies.js"></script>
+    <script src="https://webtracking-v01.bpmonline.com/JS/create-object.js"></script>
 
-	/**
-	* Замініть вираз в лапках "css-selector" в коді нижче значенням селектора елемента на Вашій лендінговій сторінці.
-	* Ви можете використовувати #id або будь-який інший CSS селектор, який буде точно визначати поле вводу на Вашій лендінговій сторінці.
-	* Приклад: "Email": "#MyEmailField".
-	* Якщо Ваша лендінгова сторінка не містить одного або декількох полів з наведених нижче – залиште рядок без змні або видаліть повністю.
-	*/
-	var config = {
-		fields: {
-			"Contact": "css-selector", // ПІП контакта, який створює замовлення
-			"Account": "css-selector", // Назва контрагента, який створює замовлення
-			"ContactNumber": "css-selector", // Мобільний телефон контакта
-			"ReceiverName": "css-selector", // ПІП отримувача замовлення
-			"Description": "css-selector", // Коментарій
-			"DeliveryType": "css-selector", // Спосіб доставки замовлення
-			"PaymentType": "css-selector", // Спосіб оплати замовлення
-			"DeliveryAddress": "css-selector" // Адреса доставки замовлення
-		},
-		contactFields: {
-			"FullName": "css-selector", // Name of a contact
-			"Phone": "css-selector", // Contact's mobile phone
-			"Email": "css-selector" // Contact's email
-		},
-		customFields: {},
-		landingId: "d389bba4-4105-4ab5-914a-554354f82d79",
-		serviceUrl: "https://dev-kronas.creatio.com/0/ServiceModel/GeneratedObjectWebFormService.svc/SaveWebFormObjectData",
-		redirectUrl: ""
-	};
-	/**
-	* Функція нижче створює об'єкт з введених даних.
-	* Прив'яжіть виклик цієї функції до події "onSubmit" форми або будь-якому іншому елементу події.
-	* Приклад: <form class="mainForm" name="landingForm" onSubmit="createObject(); return false">
-	*/
-	function createObject() {
-		landing.createObjectFromLanding(config);
-	}
-	/**
-	* Функція нижче ініціює лендинг з параметрів URL.
-	*/
-	function initLanding() {
-		landing.initLanding(config);
-	}
-	jQuery(document).ready(initLanding);
-	</script>
-    <title>Cookie Handling with UTM Tags</title>
+    <script>
+        // Replace the "css-selector" values with the actual CSS selectors for your input fields
+        var config = {
+            fields: {
+                "Contact": "css-selector",
+                "Account": "css-selector",
+                "ContactNumber": "css-selector",
+                "ReceiverName": "css-selector",
+                "Description": "css-selector",
+                "DeliveryType": "css-selector",
+                "PaymentType": "css-selector",
+                "DeliveryAddress": "css-selector"
+            },
+            contactFields: {
+                "FullName": "css-selector",
+                "Phone": "css-selector",
+                "Email": "css-selector"
+            },
+            customFields: {},
+            landingId: "d389bba4-4105-4ab5-914a-554354f82d79",
+            serviceUrl: "https://dev-kronas.creatio.com/0/ServiceModel/GeneratedObjectWebFormService.svc/SaveWebFormObjectData",
+            redirectUrl: ""
+        };
+
+        function createObject() {
+            landing.createObjectFromLanding(config);
+        }
+
+        function initLanding() {
+            landing.initLanding(config);
+        }
+
+        jQuery(document).ready(initLanding);
+    </script>
 </head>
 <body>
-    <h1>Cookie Handling with UTM Tags</h1>
-    <p>Open the browser console to see the log messages.</p>
-    <script>
-        const urlParams = new URLSearchParams(window.location.search);
-        const utmSource = urlParams.get('utm_source');
-        const utmMedium = urlParams.get('utm_medium');
-        const utmCampaign = urlParams.get('utm_campaign');
+    <h1>Base Landing Page</h1>
+    <!-- Add your form here with appropriate input fields -->
+    <form class="mainForm" name="landingForm" onsubmit="createObject(); return false;">
+        <label for="fullName">Full Name:</label>
+        <input type="text" id="fullName" name="fullName" required><br>
 
-        if (utmSource) {
-            // Store UTM source in a cookie
-            tools.setCookie('utmSource', utmSource);
-        }
+        <label for="phone">Phone:</label>
+        <input type="tel" id="phone" name="phone" required><br>
 
-        if (utmMedium) {
-            // Store UTM medium in a cookie
-            tools.setCookie('utmMedium', utmMedium);
-        }
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br>
 
-        if (utmCampaign) {
-            // Store UTM campaign in a cookie
-            tools.setCookie('utmCampaign', utmCampaign);
-        }
+        <label for="account">Account Name:</label>
+        <input type="text" id="account" name="account" required><br>
 
-    </script>
+        <label for="contactNumber">Contact Number:</label>
+        <input type="tel" id="contactNumber" name="contactNumber" required><br>
+
+        <label for="receiverName">Receiver Name:</label>
+        <input type="text" id="receiverName" name="receiverName" required><br>
+
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" rows="4" required></textarea><br>
+
+        <label for="deliveryType">Delivery Type:</label>
+        <select id="deliveryType" name="deliveryType" required>
+            <option value="">Select delivery type</option>
+            <option value="standard">Standard</option>
+            <option value="express">Express</option>
+            <option value="nextDay">Next Day</option>
+        </select><br>
+
+        <label for="paymentType">Payment Type:</label>
+        <select id="paymentType" name="paymentType" required>
+            <option value="">Select payment type</option>
+            <option value="creditCard">Credit Card</option>
+            <option value="paypal">PayPal</option>
+            <option value="cashOnDelivery">Cash on Delivery</option>
+        </select><br>
+
+        <label for="deliveryAddress">Delivery Address:</label>
+        <input type="text" id="deliveryAddress" name="deliveryAddress" required><br>
+
+        <input type="submit" value="Submit">
+    </form>
 </body>
 </html>
