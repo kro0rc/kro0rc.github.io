@@ -3,7 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<script src="https://webtracking-v01.creatio.com/JS/track-cookies.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="https://webtracking-v01.bpmonline.com/JS/track-cookies.js"></script>
+	<script src="https://webtracking-v01.bpmonline.com/JS/create-object.js"></script>
+	<script>
+
+	/**
+	* Замініть вираз в лапках "css-selector" в коді нижче значенням селектора елемента на Вашій лендінговій сторінці.
+	* Ви можете використовувати #id або будь-який інший CSS селектор, який буде точно визначати поле вводу на Вашій лендінговій сторінці.
+	* Приклад: "Email": "#MyEmailField".
+	* Якщо Ваша лендінгова сторінка не містить одного або декількох полів з наведених нижче – залиште рядок без змні або видаліть повністю.
+	*/
+	var config = {
+		fields: {
+			"Contact": "css-selector", // ПІП контакта, який створює замовлення
+			"Account": "css-selector", // Назва контрагента, який створює замовлення
+			"ContactNumber": "css-selector", // Мобільний телефон контакта
+			"ReceiverName": "css-selector", // ПІП отримувача замовлення
+			"Description": "css-selector", // Коментарій
+			"DeliveryType": "css-selector", // Спосіб доставки замовлення
+			"PaymentType": "css-selector", // Спосіб оплати замовлення
+			"DeliveryAddress": "css-selector" // Адреса доставки замовлення
+		},
+		contactFields: {
+			"FullName": "css-selector", // Name of a contact
+			"Phone": "css-selector", // Contact's mobile phone
+			"Email": "css-selector" // Contact's email
+		},
+		customFields: {},
+		landingId: "d389bba4-4105-4ab5-914a-554354f82d79",
+		serviceUrl: "https://dev-kronas.creatio.com/0/ServiceModel/GeneratedObjectWebFormService.svc/SaveWebFormObjectData",
+		redirectUrl: ""
+	};
+	/**
+	* Функція нижче створює об'єкт з введених даних.
+	* Прив'яжіть виклик цієї функції до події "onSubmit" форми або будь-якому іншому елементу події.
+	* Приклад: <form class="mainForm" name="landingForm" onSubmit="createObject(); return false">
+	*/
+	function createObject() {
+		landing.createObjectFromLanding(config);
+	}
+	/**
+	* Функція нижче ініціює лендинг з параметрів URL.
+	*/
+	function initLanding() {
+		landing.initLanding(config);
+	}
+	jQuery(document).ready(initLanding);
+	</script>
     <title>Cookie Handling with UTM Tags</title>
 </head>
 <body>
