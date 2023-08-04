@@ -12,19 +12,17 @@
         // Replace the "css-selector" values with the actual CSS selectors for your input fields
         var config = {
             fields: {
-                "Contact": "css-selector",
-                "Account": "css-selector",
-                "ContactNumber": "css-selector",
-                "ReceiverName": "css-selector",
-                "Description": "css-selector",
-                "DeliveryType": "css-selector",
-                "PaymentType": "css-selector",
-                "DeliveryAddress": "css-selector"
+                "Contact": "#fullName",
+                "Account": "#account",
+                "ContactNumber": "#contactNumber",
+                "ReceiverName": "#receiverName",
+                "Description": "#description",
+                "DeliveryAddress": "#deliveryAddress"
             },
             contactFields: {
-                "FullName": "css-selector",
-                "Phone": "css-selector",
-                "Email": "css-selector"
+                "FullName": "#fullName",
+                "Phone": "#phone",
+                "Email": "#email"
             },
             customFields: {},
             landingId: "d389bba4-4105-4ab5-914a-554354f82d79",
@@ -68,26 +66,12 @@
         <label for="description">Description:</label>
         <textarea id="description" name="description" rows="4" required></textarea><br>
 
-        <label for="deliveryType">Delivery Type:</label>
-        <select id="deliveryType" name="deliveryType" required>
-            <option value="">Select delivery type</option>
-            <option value="standard">Standard</option>
-            <option value="express">Express</option>
-            <option value="nextDay">Next Day</option>
-        </select><br>
-
-        <label for="paymentType">Payment Type:</label>
-        <select id="paymentType" name="paymentType" required>
-            <option value="">Select payment type</option>
-            <option value="creditCard">Credit Card</option>
-            <option value="paypal">PayPal</option>
-            <option value="cashOnDelivery">Cash on Delivery</option>
-        </select><br>
-
         <label for="deliveryAddress">Delivery Address:</label>
         <input type="text" id="deliveryAddress" name="deliveryAddress" required><br>
 
         <input type="submit" value="Submit">
+
     </form>
+	
 </body>
 </html>
